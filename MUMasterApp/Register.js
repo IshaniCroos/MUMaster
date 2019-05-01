@@ -62,6 +62,7 @@ export default class Register extends React.Component {
 
       firebase.auth().createUserWithEmailAndPassword(email,password)
       .then((user)=>{
+        
         const fbRootRefFS= firebase.firestore();
         const userID = user.user.uid;
         console.log(userID);
@@ -73,6 +74,9 @@ export default class Register extends React.Component {
           userName,
           password
         });
+        Alert.alert("Registration Successfull!");
+        Actions.mumain()
+        
       }).catch((error)=>{
         console.log('can not create registered user');
         console.log(error);

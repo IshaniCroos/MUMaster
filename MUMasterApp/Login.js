@@ -8,8 +8,11 @@ import {
     TextInput,
     TouchableOpacity,
     ImageBackground,
-    Image
+    Image,
+    Alert
 } from 'react-native';
+import * as firebase from 'firebase';
+import 'firebase/firestore';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Actions} from 'react-native-router-flux';
@@ -19,15 +22,78 @@ import logo from './images/logo.jpg'
 
 const {width : WIDTH}= Dimensions.get('window')
 
+// Initialize Firebase
+const config={
+  apiKey: "AIzaSyA78pqHKGnND4fn_c2S1RV95pvakMGifuQ",
+  authDomain: "mumasterapp.firebaseapp.com",
+  databaseURL: "https://mumasterapp.firebaseio.com",
+  projectId: "mumasterapp",
+  storageBucket: "mumasterapp.appspot.com",
+  //messagingSenderId: "136990159059"
+};
+ !firebase.apps.length
+? firebase.initializeApp(config).firestore()
+: firebase.app().firestore();
+
+
 export default class Login extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state={
+      email:'',
+      password: ''
+    };
+  }
 
     registerpage(){
         Actions.register()
     }
 
+   
+
+    handleLoginUser= ()=>{
+      const{
+
+        email,
+        password
+      }= this.state;
+
+      firebase.auth().signInWithEmailAndPassword(email,password)
+      .then((user)=>{
+
+        console.log("Log in Successfully!");
+        Alert.alert('Log in Successful');
+        Actions.mumain()
+
+        
+      }).catch((error)=>{
+
+        console.log('can not create log in');
+        console.log(error);
+        Alert.alert(error.message);
+      });
+    }
+
+    handleSetEmailLocalState=(email)=>{
+     
+      let y =this.state;
+      y.email = email;
+      this.setState(y);
+      console.log(email);
+    }
+
+    handleSetPasswordLocalState=(password)=>{
+     
+      let a =this.state;
+      a.password = password;
+      this.setState(a);
+      console.log(password);
+    }
+
 
   render() {
-    console.log('Hello Console World!');
+   // console.log('Hello Console World!');
 
 
     return (
@@ -52,6 +118,7 @@ export default class Login extends React.Component {
          placeholder={'Email Address'}
          placeholderTextColor={'rgba(255,255,255,0.7)'}
          underlineColorAndroid='transparent'
+         onChangeText={this.handleSetEmailLocalState}
          
         
        />
@@ -59,13 +126,39 @@ export default class Login extends React.Component {
 
 
 
+        <View style={styles.inputContainer}>
+          <Icon name={'ios-lock'} size={30} color={'rgba(255,255,255,0.9)'} 
+          style={styles.inputIcon}
+          />
+
+      <TextInput
+        style={styles.input}
+        placeholder={'Password'}
+       secureTextEntry={true}
+        placeholderTextColor={'rgba(255,255,255,0.7)'}
+        underlineColorAndroid='transparent'
+        onChangeText={this.handleSetPasswordLocalState}
+        
+        
+       
+       />
+       </View>
+
+
+       <View style={styles.register}>
+        <TouchableOpacity  style={styles.btnReg}
+         onPress={this.handleLoginUser}
+        >
+         <Text style={styles.text}> Login</Text>
+         </TouchableOpacity>
+         </View>
 
 
 
          <View style={styles.logintxt}>
 
           <Text style={styles.txt}>
-          Dont Have an Acount? 
+          Don't Have an Account? 
           
           </Text>
 
@@ -178,6 +271,27 @@ const styles = StyleSheet.create({
     top: 8,
     left:37
   },
+
+  register:{
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+
+  btnReg:{
+    width: WIDTH -55,
+    height:45,
+    borderRadius:25,
+    backgroundColor: '#432577',
+    justifyContent:'center',
+    marginTop:20
+  },
+
+  text:{
+    color: 'rgba(255,255,255,0.7)',
+    fontSize: 18,
+    textAlign: 'center'
+  },
+
 
  
 
