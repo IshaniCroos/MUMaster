@@ -16,6 +16,10 @@ export default class SettingsPage extends React.Component {
     main() {
         Actions.main() //method to get another page via routing
     }
+
+    mumain(){
+        Actions.mumain()
+    }
     constructor() {
         super();
         this.onValueChangeA = this.onValueChangeA.bind(this);
@@ -102,6 +106,7 @@ export default class SettingsPage extends React.Component {
                             size={20}
 
                         />
+
                         <SettingsList.Item
                             titleStyle={{ color: 'red', fontSize: 15 }}
                             backgroundColor='background'
@@ -109,6 +114,15 @@ export default class SettingsPage extends React.Component {
                             titleInfo='LOG OUT'
                             onPress={this.main}
                         />
+
+                        <SettingsList.Item
+                            titleStyle={{ color: 'red', fontSize: 15 }}
+                            backgroundColor='background'
+                            title='Go to Main Page'
+                            titleInfo='Go to Main Page'
+                            onPress={this.mumain}
+                        />
+
 
 
 
