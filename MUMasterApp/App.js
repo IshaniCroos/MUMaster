@@ -10,6 +10,7 @@ import Register from './Register';
 import LoginPage from './Login';
 
 import Routes from './Routes';
+import MUMain from './MUMain';
 
 export default class App extends React.Component {
   render() {
@@ -23,7 +24,7 @@ export default class App extends React.Component {
           <Text style={styles.logoText}> M U - M A S T E R </Text>
         </View>*/
         <View style= {styles.overlayContainer}>
-        <Routes/>
+        <MUMain/>
 
 
 

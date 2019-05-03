@@ -236,7 +236,7 @@ export default class Register extends React.Component {
         
 
 
-<View style={styles.register}>
+      <View style={styles.register}>
         <TouchableOpacity  style={styles.btnReg}
         onPress={this.handleRegisterUser}  
         >
