@@ -7,12 +7,11 @@ import logo from './images/logo.jpg'
 
 const {width : WIDTH}= Dimensions.get('window')
 import Routes from './Routes';
-import MUMain from './MUMain';
 import Login from './pages/Login.js';
 import Register from './pages/Register.js';
 import MUMain from './pages/MUMain.js';
 import Main from './pages/Main.js';
-import Settings from './pages/Settings.js';
+import Settings from './pages/SettingsPage.js';
 
 export default class App extends React.Component {
   render() {
