@@ -11,7 +11,7 @@ import Login from './pages/Login.js';
 import Register from './pages/Register.js';
 import MUMain from './pages/MUMain.js';
 import Main from './pages/Main.js';
-import Settings from './pages/Settings.js';
+import SettingsPage from './pages/SettingsPage.js';
 
 
  
@@ -99,9 +99,9 @@ const Screen3_StackNavigator = createStackNavigator({
 
 const Screen3_StackNavigator = createStackNavigator({
   Third: {
-    screen: Settings,
+    screen: SettingsPage,
     navigationOptions: ({ navigation }) => ({
-      title: 'Settings',
+      title: 'SettingsPage',
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#e4b38e',
@@ -142,11 +142,11 @@ const DrawerNavigatorExample = createDrawerNavigator({
       drawerLabel: 'Shades',
     },
   },
-      Settings: {
+      SettingsPage: {
     
     screen: Screen3_StackNavigator,
     navigationOptions: {
-      drawerLabel: 'Settings',
+      drawerLabel: 'SettingsPage',
     },
   },
 });
