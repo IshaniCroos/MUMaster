@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 import { Router, Stack, Scene } from 'react-native-router-flux';
 
 
-import Register from './Register';
-import LoginPage from './Login';
-import Main from './Main';
-import MUMain from './MUMain';
-import SettingsPage from './SettingsPage';
+import Register from '.pages/Register';
+import LoginPage from '.pages/Login';
+import Main from '.pages/Main';
+import MUMain from '.pages/MUMain';
+import SettingsPage from '.pages/SettingsPage';
 
 export default class Routes extends Component {
     render() {
