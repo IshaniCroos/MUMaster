@@ -7,11 +7,11 @@ import {
   createAppContainer,
 } from 'react-navigation';
  
-import Screen1 from './pages/Login.js';
-import Screen2 from './pages/Register.js';
-import Screen3 from './pages/MUMain.js';
-import Screen4 from './pages/Main.js';
-import Screen5 from './pages/Settings.js';
+import Login from './pages/Login.js';
+import Register from './pages/Register.js';
+import MUMain from './pages/MUMain.js';
+import Main from './pages/Main.js';
+import Settings from './pages/Settings.js';
 
 
  
@@ -40,7 +40,7 @@ class NavigationDrawerStructure extends Component {
 const FirstActivity_StackNavigator = createStackNavigator({
  
   First: {
-    screen: Screen1,
+    screen: Login,
     navigationOptions: ({ navigation }) => ({
       title: 'Login',
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
@@ -55,7 +55,7 @@ const FirstActivity_StackNavigator = createStackNavigator({
 
 const Screen2_StackNavigator = createStackNavigator({
   Second: {
-    screen: Screen2,
+    screen: Register,
     navigationOptions: ({ navigation }) => ({
       title: 'Register',
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
@@ -70,7 +70,7 @@ const Screen2_StackNavigator = createStackNavigator({
 
 const Screen3_StackNavigator = createStackNavigator({
   Third: {
-    screen: Screen3,
+    screen: Main,
     navigationOptions: ({ navigation }) => ({
       title: 'Main',
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
@@ -84,7 +84,7 @@ const Screen3_StackNavigator = createStackNavigator({
  
 const Screen3_StackNavigator = createStackNavigator({
   Third: {
-    screen: Screen4,
+    screen: Sahdes,
     navigationOptions: ({ navigation }) => ({
       title: 'Shades',
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
@@ -99,7 +99,7 @@ const Screen3_StackNavigator = createStackNavigator({
 
 const Screen3_StackNavigator = createStackNavigator({
   Third: {
-    screen: Screen5,
+    screen: Settings,
     navigationOptions: ({ navigation }) => ({
       title: 'Settings',
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
@@ -113,7 +113,7 @@ const Screen3_StackNavigator = createStackNavigator({
  
  
 const DrawerNavigatorExample = createDrawerNavigator({
-  Screen1: {
+  Login: {
   
     screen: FirstActivity_StackNavigator,
     navigationOptions: {
@@ -121,28 +121,28 @@ const DrawerNavigatorExample = createDrawerNavigator({
     },
   },
     
-  Screen2: {
+  Register: {
     
     screen: Screen2_StackNavigator,
     navigationOptions: {
       drawerLabel: 'Register',
     },
   },
-  Screen3: {
+  Main: {
     
     screen: Screen3_StackNavigator,
     navigationOptions: {
       drawerLabel: 'Main',
     },
   },
-      Screen4: {
+      Shades: {
     
     screen: Screen3_StackNavigator,
     navigationOptions: {
       drawerLabel: 'Shades',
     },
   },
-      Screen5: {
+      Settings: {
     
     screen: Screen3_StackNavigator,
     navigationOptions: {
