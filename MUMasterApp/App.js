@@ -6,12 +6,13 @@ import logo from './images/logo.jpg'
 
 
 const {width : WIDTH}= Dimensions.get('window')
+
+import Register from './Register';
+import LoginPage from './Login';
+import SettingsPage from '/SettingsPage';
 import Routes from './Routes';
-import Login from './pages/Login.js';
-import Register from './pages/Register.js';
-import MUMain from './pages/MUMain.js';
-import Main from './pages/Main.js';
-import Settings from './pages/SettingsPage.js';
+import MUMain from './MUMain';
+import Main from './Main';
 
 export default class App extends React.Component {
   render() {

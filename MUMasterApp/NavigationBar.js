@@ -7,11 +7,11 @@ import {
   createAppContainer,
 } from 'react-navigation';
  
-import Login from './pages/Login.js';
-import Register from './pages/Register.js';
-import MUMain from './pages/MUMain.js';
-import Main from './pages/Main.js';
-import SettingsPage from './pages/SettingsPage.js';
+import Login from './Login.js';
+import Register from './Register.js';
+import MUMain from './MUMain.js';
+import Main from './Main.js';
+import SettingsPage from './SettingsPage.js';
 
 
  
