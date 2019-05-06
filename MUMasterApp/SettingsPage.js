@@ -27,6 +27,7 @@ export default class SettingsPage extends React.Component {
 
         this.onValueChangeB = this.onValueChangeB.bind(this);
         this.state = { switchValueB: false };
+
     }
 
     ratingCompleted(rating) {
@@ -72,6 +73,8 @@ export default class SettingsPage extends React.Component {
 
                         />
 
+
+
                         <SettingsList.Item
                             titleStyle={{ color: 'red', fontSize: 15 }}
                             backgroundColor='background'
@@ -101,6 +104,7 @@ export default class SettingsPage extends React.Component {
                             reviews={["Terrible", "Bad", "Meh", "OK", "Good", "Hmm...", "Very Good", "Wow", "Amazing", "Unbelievable", "Jesus"]}
                             defaultRating={11}
                             size={20}
+
                         />
 
                         <SettingsList.Item
@@ -118,6 +122,8 @@ export default class SettingsPage extends React.Component {
                             titleInfo='Go to Main Page'
                             onPress={this.mumain}
                         />
+
+
 
 
                     </SettingsList>

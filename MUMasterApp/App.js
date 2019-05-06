@@ -1,39 +1,23 @@
 import React from 'react';
 import { StyleSheet, Text, View,ImageBackground,Image,Dimensions } from 'react-native';
 
-import bgImage from './images/background1.jpg'
-import logo from './images/logo.jpg'
 
 
 const {width : WIDTH}= Dimensions.get('window')
 
-import Register from './Register';
-import LoginPage from './Login';
-import SettingsPage from '/SettingsPage';
 import Routes from './Routes';
-import MUMain from './MUMain';
-import Main from './Main';
 
 export default class App extends React.Component {
   render() {
     return (
 
-    /*  <ImageBackground source={bgImage} style={styles.container}>
-     
-
-        <View style={styles.logoContainer}>
-          <Image source={logo} style={styles.logo}   />
-          <Text style={styles.logoText}> M U - M A S T E R </Text>
-        </View>*/
+  
         <View style= {styles.overlayContainer}>
-        <MUMain/>
-
-
+        <Routes/>
 
 
         </View>
-       // </ImageBackground>
-
+       
 
     );
   }

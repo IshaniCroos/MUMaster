@@ -11,6 +11,7 @@
     "firebase": "^5.10.1",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react-native-elements": "^1.1.0",
     "react-native-ratings": "^6.3.1",
     "react-native-router-flux": "^4.0.6",
     "react-native-settings-list": "^1.8.0"

@@ -69,7 +69,7 @@ export default class Login extends React.Component {
         
       }).catch((error)=>{
 
-        console.log('can not create log in');
+        console.log('Log in Unsuccessful');
         console.log(error);
         Alert.alert(error.message);
       });

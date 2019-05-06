@@ -43,12 +43,17 @@ export default class MUMain extends React.Component {
       V:'',
       L:'',
       group:'',
-      brand:'' 
+      brand:'' ,
+      status: false
     };
   }
 
   SettingsPage() {
     Actions.settingsPage() //method to get another page via routing
+  }
+
+  Recommendation(){
+    Actions.recommendation()
   }
 
   handleShadeDetails=()=>{
@@ -58,18 +63,20 @@ export default class MUMain extends React.Component {
       V="0.98",
       L="80",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();  //adding the shades info to the database
-     const userRef = db.collection("shade").add({
+     const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
+    brand: brand,
+    status:status
+  }, { merge: true });  
       console.log('Successfully Added Your Shade');
       Alert.alert('Shade Added Successfully!');
       
@@ -82,18 +89,20 @@ export default class MUMain extends React.Component {
       V="0.98",
       L="79",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
+    brand: brand,
+    status:status
+  }, { merge: true });  
   console.log('Successfully Added Your Shade');
   Alert.alert('Shade Added Successfully!');
       
@@ -107,18 +116,20 @@ export default class MUMain extends React.Component {
       V="0.96",
       L="79",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
+    brand: brand,
+    status:status
+  }, { merge: true }); 
   console.log('Successfully Added Your Shade');
   Alert.alert('Shade Added Successfully!');
       
@@ -133,18 +144,21 @@ export default class MUMain extends React.Component {
       V="0.98",
       L="76",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
+
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
+    brand: brand,
+    status:status
+  }, { merge: true }); 
   console.log('Successfully Added Your Shade');
   Alert.alert('Shade Added Successfully!');
       
@@ -158,18 +172,20 @@ export default class MUMain extends React.Component {
       V="0.97",
       L="75",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
+    brand: brand,
+    status:status
+  }, { merge: true });   
   console.log('Successfully Added Your Shade');
   Alert.alert('Shade Added Successfully!');
       
@@ -184,18 +200,20 @@ export default class MUMain extends React.Component {
       V="0.87",
       L="75",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({ 
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
+    brand: brand,
+    status:status
+  }, { merge: true });
   console.log('Successfully Added Your Shade');
   Alert.alert('Shade Added Successfully!');
       
@@ -210,18 +228,20 @@ export default class MUMain extends React.Component {
       V="0.88",
       L="80",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
+    brand: brand,
+    status:status
+  }, { merge: true }); 
   console.log('Successfully Added Your Shade');
   Alert.alert('Shade Added Successfully!');
       
@@ -237,18 +257,20 @@ export default class MUMain extends React.Component {
       V="0.94",
       L="69",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
+    brand: brand,
+    status:status
+  }, { merge: true });
   console.log('Successfully Added Your Shade');
   Alert.alert('Shade Added Successfully!');
       
@@ -263,18 +285,20 @@ export default class MUMain extends React.Component {
       V="0.97",
       L="67",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
+    brand: brand,
+    status:status
+  }, { merge: true }); 
   console.log('Successfully Added Your Shade');
   Alert.alert('Shade Added Successfully!');
       
@@ -288,19 +312,21 @@ export default class MUMain extends React.Component {
       V="0.92",
       L="68",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
       
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
+    brand: brand,
+    status:status
+  }, { merge: true }); 
   console.log('Successfully Added Your Shade');
   Alert.alert('Shade Added Successfully!');
       
@@ -314,20 +340,22 @@ export default class MUMain extends React.Component {
       V="0.92",
       L="68",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
-      console.log('Brand name is',brand);
-      console.log('Product name is',product);
+    brand: brand,
+    status:status
+  }, { merge: true }); 
+  console.log('Successfully Added Your Shade');
+  Alert.alert('Shade Added Successfully!');
       
   }
 
@@ -339,20 +367,22 @@ export default class MUMain extends React.Component {
       V="0.91",
       L="63",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
-      console.log('Brand name is',brand);
-      console.log('Product name is',product);
+    brand: brand,
+    status:status
+  }, { merge: true });  
+  console.log('Successfully Added Your Shade');
+  Alert.alert('Shade Added Successfully!');
       
   }
 
@@ -365,20 +395,22 @@ export default class MUMain extends React.Component {
       V="0.95",
       L="65",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
-      console.log('Brand name is',brand);
-      console.log('Product name is',product);
+    brand: brand,
+    status:status
+  }, { merge: true });
+  console.log('Successfully Added Your Shade');
+  Alert.alert('Shade Added Successfully!');
       
   }
 
@@ -391,20 +423,22 @@ export default class MUMain extends React.Component {
       V="0.86",
       L="64",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
-      console.log('Brand name is',brand);
-      console.log('Product name is',product);
+    brand: brand,
+    status:status
+  }, { merge: true }); 
+  console.log('Successfully Added Your Shade');
+  Alert.alert('Shade Added Successfully!');
       
   }
 
@@ -417,20 +451,22 @@ export default class MUMain extends React.Component {
       V="0.89",
       L="61",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
-      console.log('Brand name is',brand);
-      console.log('Product name is',product);
+    brand: brand,
+    status:status
+  }, { merge: true });
+  console.log('Successfully Added Your Shade');
+  Alert.alert('Shade Added Successfully!');
       
   }
 
@@ -443,20 +479,22 @@ export default class MUMain extends React.Component {
       V="0.85",
       L="57",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
-      console.log('Brand name is',brand);
-      console.log('Product name is',product);
+    brand: brand,
+    status:status
+  }, { merge: true });
+  console.log('Successfully Added Your Shade');
+  Alert.alert('Shade Added Successfully!');
       
   }
 
@@ -470,20 +508,22 @@ export default class MUMain extends React.Component {
       V="0.85",
       L="55",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
-      console.log('Brand name is',brand);
-      console.log('Product name is',product);
+    brand: brand,
+    status:status
+  }, { merge: true }); 
+  console.log('Successfully Added Your Shade');
+  Alert.alert('Shade Added Successfully!');
       
   }
 
@@ -496,20 +536,22 @@ export default class MUMain extends React.Component {
       V="0.87",
       L="53",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
-      console.log('Brand name is',brand);
-      console.log('Product name is',product);
+    brand: brand,
+    status:status
+  }, { merge: true });  
+  console.log('Successfully Added Your Shade');
+  Alert.alert('Shade Added Successfully!');
       
   }
 
@@ -522,20 +564,22 @@ export default class MUMain extends React.Component {
       V="0.89",
       L="53",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
-      console.log('Brand name is',brand);
-      console.log('Product name is',product);
+    brand: brand,
+    status:status
+  }, { merge: true });  
+  console.log('Successfully Added Your Shade');
+  Alert.alert('Shade Added Successfully!');
       
   }
 
@@ -548,21 +592,23 @@ export default class MUMain extends React.Component {
       V="0.89",
       L="50",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
-      console.log('Brand name is',brand);
-      console.log('Product name is',product);
+    brand: brand,
+    status:status
+  }, { merge: true });  
+  console.log('Successfully Added Your Shade');
+  Alert.alert('Shade Added Successfully!');
       
   }
 
@@ -575,20 +621,22 @@ export default class MUMain extends React.Component {
       V="0.86",
       L="46",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({ 
+      const userRef = db.collection("shade").doc("allShades").set({ 
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
-      console.log('Brand name is',brand);
-      console.log('Product name is',product);
+    brand: brand,
+    status:status
+  }, { merge: true });  
+  console.log('Successfully Added Your Shade');
+  Alert.alert('Shade Added Successfully!');
       
   }
 
@@ -600,21 +648,23 @@ export default class MUMain extends React.Component {
       V="0.84",
       L="47",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
-      console.log('Brand name is',brand);
-      console.log('Product name is',product);
+    brand: brand,
+    status:status
+  }, { merge: true });   
+  console.log('Successfully Added Your Shade');
+  Alert.alert('Shade Added Successfully!');
       
   }
 
@@ -626,20 +676,22 @@ export default class MUMain extends React.Component {
       V="0.85",
       L="50",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
-      console.log('Brand name is',brand);
-      console.log('Product name is',product);
+    brand: brand,
+    status:status
+  }, { merge: true }); 
+  console.log('Successfully Added Your Shade');
+  Alert.alert('Shade Added Successfully!');
       
   }
 
@@ -652,20 +704,22 @@ export default class MUMain extends React.Component {
       V="0.82",
       L="43",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
-      console.log('Brand name is',brand);
-      console.log('Product name is',product);
+    brand: brand,
+    status:status
+  }, { merge: true });  
+  console.log('Successfully Added Your Shade');
+  Alert.alert('Shade Added Successfully!');
       
   }
 
@@ -679,20 +733,22 @@ export default class MUMain extends React.Component {
       V="0.91",
       L="40",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
-      console.log('Brand name is',brand);
-      console.log('Product name is',product);
+    brand: brand,
+    status:status
+  }, { merge: true }); 
+  console.log('Successfully Added Your Shade');
+  Alert.alert('Shade Added Successfully!');
       
   }
 
@@ -705,21 +761,22 @@ export default class MUMain extends React.Component {
       V="0.83",
       L="48",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
-      console.log('Brand name is',brand);
-      console.log('Product name is',product);
-      
+    brand: brand,
+    status:status
+  }, { merge: true }); 
+  console.log('Successfully Added Your Shade');
+  Alert.alert('Shade Added Successfully!');
   }
 
 
@@ -732,20 +789,22 @@ export default class MUMain extends React.Component {
       V="0.84",
       L="40",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
-      console.log('Brand name is',brand);
-      console.log('Product name is',product);
+    brand: brand,
+    status:status
+  }, { merge: true }); 
+  console.log('Successfully Added Your Shade');
+  Alert.alert('Shade Added Successfully!');
       
   }
 
@@ -758,20 +817,22 @@ export default class MUMain extends React.Component {
       V="0.84",
       L="33",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
-      console.log('Brand name is',brand);
-      console.log('Product name is',product);
+    brand: brand,
+    status:status
+  }, { merge: true });  
+  console.log('Successfully Added Your Shade');
+  Alert.alert('Shade Added Successfully!');
       
   }
 
@@ -784,20 +845,22 @@ export default class MUMain extends React.Component {
       V="0.79",
       L="29",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
-      console.log('Brand name is',brand);
-      console.log('Product name is',product);
+    brand: brand,
+    status:status
+  }, { merge: true }); 
+  console.log('Successfully Added Your Shade');
+  Alert.alert('Shade Added Successfully!');
       
   }
 
@@ -811,21 +874,22 @@ export default class MUMain extends React.Component {
       V="0.79",
       L="23",
       group="8",
-      brand="HudaBeauty"
+      brand="HudaBeauty",
+      status= true
       } = this.setState;
 
       const db = firebase.firestore();
-     const userRef = db.collection("shade").add({
+      const userRef = db.collection("shade").doc("allShades").set({
     H: H,
     S:S,
     V:V,
     L:L,
     group:group,
-    brand: brand
-  });  
-      console.log('Brand name is',brand);
-      console.log('Product name is',product);
-      
+    brand: brand,
+    status:status
+  }, { merge: true }); 
+  console.log('Successfully Added Your Shade');
+  Alert.alert('Shade Added Successfully!');
   }
 
   render() {
@@ -1045,7 +1109,13 @@ export default class MUMain extends React.Component {
          </View>
  
 
-
+         <View style={styles.settings}>
+        <TouchableOpacity  style={styles.btnSettings}
+        onPress={this.Recommendation}  
+        >
+         <Text style={styles.text}> Go to Recommendation</Text>
+         </TouchableOpacity>
+         </View>
 
 
 
