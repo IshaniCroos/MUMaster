@@ -1,9 +1,36 @@
+/**********************************************************************************************************************************
+ * Author: A.A.D.M. Gunawardana
+ * UOW ID: w1673610
+ * Last Edit: 10/5/2019
+ * 
+ * Settings page link with firebase database.This page has several options those are Account Details, Chage Account, Delete  Account, Version, Rate Our App, Share With Friends, LOG OUT, Go To Main Page  
+ * 
+ * Page Contain: fuctions that user can view user name and password, function that delete user account, fuctions that Rate App,
+ *               Function that can navigate to ChangeUserAccount, Login, Main pages
+ * 
+ ********************************************************************************************************************************/
 import React, { Component } from 'react';
 
 import { Text, View, Alert, ImageBackground, Share } from 'react-native';
 import SettingsList from 'react-native-settings-list';
 import { AirbnbRating } from 'react-native-ratings';
 import { Actions } from 'react-native-router-flux';
+
+import * as firebase from 'firebase';
+import 'firebase/firestore';
+
+// Initialize Firebase
+const config = {
+    apiKey: "AIzaSyA78pqHKGnND4fn_c2S1RV95pvakMGifuQ",
+    authDomain: "mumasterapp.firebaseapp.com",
+    databaseURL: "https://mumasterapp.firebaseio.com",
+    projectId: "mumasterapp",
+    storageBucket: "mumasterapp.appspot.com",
+    //messagingSenderId: "136990159059"
+};
+!firebase.apps.length
+    ? firebase.initializeApp(config).firestore()
+    : firebase.app().firestore();
 
 const shareOptions = {
     title: 'Title',
@@ -13,32 +40,57 @@ const shareOptions = {
 };
 
 export default class SettingsPage extends React.Component {
-    main() {
-        Actions.main() //method to get another page via routing
-    }
 
-    mumain(){
+    //method to navigate chage user account page
+    chageUserAccount() {
+        Actions.chageUserAccount()
+    }
+    //method to navigate login page
+    main() {
+        Actions.main()
+    }
+    //method to navigate main page
+    mumain() {
         Actions.mumain()
     }
-    constructor() {
-        super();
-        this.onValueChangeA = this.onValueChangeA.bind(this);
-        this.state = { switchValueA: false };
-
-        this.onValueChangeB = this.onValueChangeB.bind(this);
-        this.state = { switchValueB: false };
-
-    }
-
+    // method to rating the app
     ratingCompleted(rating) {
         console.log("Rating is: " + rating)
     }
-
+    //method to share option
     onSharePress = () => Share.share(shareOptions);
+    //method to delete the account
+    deleteAccount = () => {
+        const user = firebase.auth().currentUser;
+        const fbRootRefFS = firebase.firestore();
+        const userID = user.uid;
+        const ref = fbRootRefFS.collection('users').doc(userID);
+
+        console.log(userID);
+        //delete user id in database function
+        ref.delete();
+        Alert.alert('Account Deleted Successfully...')
+        Actions.main();// to navigate login page
+    }
+    //method to retrieve data from database to the app
+    //this method to user to show account user name and password
+    onDetailsPress = () => {
+        const user = firebase.auth().currentUser;
+        const db = firebase.firestore();
+        const userID = user.uid;
+
+        var ref = (db.collection("users").doc(userID));
+
+        ref.get().then(function (doc) {//get user details from the database function
+            if (doc.exists) {
+                Alert.alert("Account Name is " + doc.data().userName + " " + "Account Password is " + doc.data().password);
+            }
+        });
+    }
+
 
     render() {
         return (
-
             <ImageBackground source={require('./images/back2.gif')} style={{ width: '100%', height: '100%' }}>
                 <View style={{ flex: 1 }}>
 
@@ -47,44 +99,30 @@ export default class SettingsPage extends React.Component {
                     </View>
 
                     <SettingsList borderColor='brown'>
-                        <SettingsList.Header headerText='Notifications' headerStyle={{ color: '#FF1493', fontSize: 18 }} />
-                        <SettingsList.Item
-
+                        <SettingsList.Header headerText='Account' headerStyle={{ color: '#FF1493', fontSize: 18 }} />
+                        <SettingsList.Item //Account Details
                             titleStyle={{ color: 'red', fontSize: 15 }}
-                            title='App allow to access to your photo, media, file on device'
+                            title='Account Details'
+                            onPress={this.onDetailsPress}
                             backgroundColor='background'
-                            hasSwitch={true}
-                            switchState={this.state.switchValueA}
-                            switchOnValueChange={this.onValueChangeA}
-                            hasNavArrow={false}
-
                         />
-
-                        <SettingsList.Item
+                        <SettingsList.Item //Chage Account
                             titleStyle={{ color: 'red', fontSize: 15 }}
-                            onPress={this.onSharePress}
                             backgroundColor='background'
-                            titleInfo='Share'
-                            // hasSwitch={true}
-                            // switchState={this.state.switchValueB}
-                            // switchOnValueChange={this.onValueChangeB}
-                            // hasNavArrow={false}
-                            title='Share with Friends'
-
+                            title='Chage Account'
+                            titleInfo='chage user name'
+                            onPress={this.chageUserAccount}
                         />
-
-
-
-                        <SettingsList.Item
+                        <SettingsList.Item //Delete Account
                             titleStyle={{ color: 'red', fontSize: 15 }}
                             backgroundColor='background'
-                            title='Clean History'
-                            titleInfo='Delete permanently'
-                            onPress={() => Alert.alert('History deleted Successfully')}
+                            title='Delete Account'
+                            titleInfo='permanently delete'
+                            onPress={this.deleteAccount}
                         />
 
                         <SettingsList.Header headerText='Version' headerStyle={{ color: '#FF1493', fontSize: 18 }} />
-                        <SettingsList.Item
+                        <SettingsList.Item //Version
                             titleStyle={{ color: 'red', fontSize: 15 }}
                             backgroundColor='background'
                             hasNavArrow={false}
@@ -92,12 +130,19 @@ export default class SettingsPage extends React.Component {
                         />
 
                         <SettingsList.Header headerText='More' headerStyle={{ color: '#FF1493', fontSize: 18 }} />
-                        <SettingsList.Item
+                        <SettingsList.Item //Share With Friends
+                            titleStyle={{ color: 'red', fontSize: 15 }}
+                            onPress={this.onSharePress}
+                            backgroundColor='background'
+                            titleInfo='Share'
+                            title='Share With Friends'
+                        />
+                        <SettingsList.Item //Rate Our App
                             titleStyle={{ color: 'red', fontSize: 15 }}
                             backgroundColor='background'
                             hasNavArrow={false}
                             titleInfo='Select'
-                            title='Rate our app'
+                            title='Rate Our App'
                         />
                         <AirbnbRating
                             count={11}
@@ -107,27 +152,22 @@ export default class SettingsPage extends React.Component {
 
                         />
 
-                        <SettingsList.Item
+                        <SettingsList.Item //LOG OUT
                             titleStyle={{ color: 'red', fontSize: 15 }}
                             backgroundColor='background'
                             title='Log out'
                             titleInfo='LOG OUT'
                             onPress={this.main}
                         />
-
-                        <SettingsList.Item
+                        <SettingsList.Item //Go To Main Page
                             titleStyle={{ color: 'red', fontSize: 15 }}
                             backgroundColor='background'
                             title='Go to Main Page'
-                            titleInfo='Go to Main Page'
+                            titleInfo='Go To Main Page'
                             onPress={this.mumain}
                         />
 
-
-
-
                     </SettingsList>
-
 
                     <Text style={{
                         color: '#4B0082',
@@ -138,17 +178,7 @@ export default class SettingsPage extends React.Component {
 
                 </View>
 
-
             </ImageBackground>
         );
-    }
-
-    onValueChangeA(value) {
-        this.setState({ switchValueA: value });
-
-    }
-
-    onValueChangeB(value) {
-        this.setState({ switchValueB: value });
     }
 }
