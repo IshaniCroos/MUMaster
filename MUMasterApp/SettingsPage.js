@@ -61,16 +61,16 @@ export default class SettingsPage extends React.Component {
     onSharePress = () => Share.share(shareOptions);
     //method to delete the account
     deleteAccount = () => {
-        const user = firebase.auth().currentUser;
-        const fbRootRefFS = firebase.firestore();
-        const userID = user.uid;
-        const ref = fbRootRefFS.collection('users').doc(userID);
-
+        const iduser = firebase.auth().currentUser;
+        var user = firebase.auth().currentUser;
+        const userID = iduser.uid;
         console.log(userID);
-        //delete user id in database function
-        ref.delete();
-        Alert.alert('Account Deleted Successfully...')
-        Actions.main();// to navigate login page
+        user.delete().then(function () { //delete user id in database function
+            Alert.alert('Account Deleted Successfully...')
+            Actions.main();// to navigate login page
+        }).catch(function (error) {
+            Alert.alert('Please Try Again Later...')
+        });
     }
     //method to retrieve data from database to the app
     //this method to user to show account user name and password
