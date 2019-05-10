@@ -8,6 +8,7 @@ import LoginPage from './Login';
 import Main from './Main';
 import MUMain from './MUMain';
 import SettingsPage from './SettingsPage';
+import ChageUserAccount from './ChageUserAccount';
 import Recommendation from './Recommendation';
 
 export default class Routes extends Component {
@@ -23,6 +24,7 @@ export default class Routes extends Component {
                     <Scene key="login" component={LoginPage} title="LoginPage"></Scene>
                     <Scene key="mumain" component={MUMain} title="MUMainPage"> </Scene>
                     <Scene key="settingsPage" component={SettingsPage} title="SettingsPage"> </Scene>
+                    <Scene key="chageUserAccount" component={ChageUserAccount} title="ChageUserAccount"> </Scene>
                     <Scene key="recommendation" component={Recommendation} title="RecommendationPage"> </Scene>
                 </Stack>
             </Router>
