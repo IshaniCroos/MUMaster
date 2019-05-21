@@ -1,4 +1,12 @@
 # MUMaster
 SDGP Project
 
+Team- Techcrats
+
+PULSARA GUNAWARDANA         2017348           W1697805
+ISHANI CROOS                2017364           W1697815
+CHANAKA PRABATH             2017325           W1698515
+HARIPRIYA CUMARASWAMY       2017370           W1697323
+DHARSHI GUNAWARDHANA        2016053           W1673610
+ANJALI GOMES                2017359           W1697813  
 
